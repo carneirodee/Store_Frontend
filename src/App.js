@@ -2,45 +2,57 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Container from './components/commons/Container';
+import { Footer, SideContainer } from './components/commons/SideContainer';
+import { Title, Subtitle } from './components/commons/Titles';
 import axios from 'axios';
 
 function App() {
 
   const [background, setBackground] = useState('')
-  const [serieEpisodes, setSerieEpisodes] = useState({})
+  const [cast, setCast] = useState([]);
+  const [title, setTitle] = useState('');
+  const [genres, setGenres] = useState([]);
+  const [year, setYear] = useState(0);
 
   useEffect(() => {
-     axios.get(`https://sample-api-78c77.firebaseio.com/tv-shows/SHOW123.json`)
-    .then(res=>{
-        console.log(res);
-        setBackground(`${res.data.Images.Background}`);
-        console.log("Info",background);
-      
-    })
-    .catch(err=>{
+    axios.get(`https://sample-api-78c77.firebaseio.com/tv-shows/SHOW123.json`)
+      .then(res => {
+        const { data } = res;
+        const { Images, Cast, Genres, Synopsis, Title, Year } = data;
+        setBackground(`${Images.Background}`);
+        setTitle(Title)
+        setCast(Cast)
+        setGenres(Genres)
+        setYear(Year)
+        console.log("Background", background, "Cast", cast, "Genres", genres);
+      })
+      .catch(err => {
         console.log(err)
-    })
+      })
 
-  },[background])
+  }, [background, genres])
 
-  if(background === ''){
+  const getGenres = () => {
+    const listGenres = genres.length > 0 ? genres.map(genre => genre.Title.toUpperCase() + " / ") : ''
+    return listGenres;
+  }
+
+  if (background === '') {
     return (
       <h1>I am loading :)</h1>
     )
-  }else{
-   console.log(background)
-
+  } else {
     return (
-      
-      <Container
-        image={background}
-      >
-        <p>HI</p>
+      <Container image={background}>
+        <Title>{title}</Title>
+        <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
+        <SideContainer></SideContainer>
+        <Footer></Footer>
       </Container>
     );
   }
 
- 
+
 }
 
 export default App;
