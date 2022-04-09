@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import Container from './components/commons/Container';
-import { Footer, SideContainer } from './components/commons/SideContainer';
-import { Title, Subtitle } from './components/commons/Titles';
+import { Container, FooterContainer, SideContainer } from './components/containers';
+import { Title, Subtitle } from './components/title/Titles';
 import axios from 'axios';
 
 function App() {
@@ -47,7 +45,7 @@ function App() {
         <Title>{title}</Title>
         <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
         <SideContainer></SideContainer>
-        <Footer></Footer>
+        <FooterContainer></FooterContainer>
       </Container>
     );
   }
