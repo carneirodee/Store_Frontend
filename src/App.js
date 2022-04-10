@@ -50,9 +50,22 @@ function App() {
   //     </Container>
   //   );
   // }
-
+      const tabs =[
+        {
+          title: 'General',
+          component: <div>Hi</div>
+        },
+        {
+          title: 'Elenco',
+          component: <div>Elenco</div>
+        },
+        {
+          title: 'Premiações',
+          component: <div>Premiação</div>
+        }
+      ]
     return (
-      <Tabs></Tabs>
+      <Tabs selectedTab={"0"} tabs={tabs}></Tabs>
     )
 
 }
