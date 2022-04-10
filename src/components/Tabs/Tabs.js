@@ -6,7 +6,7 @@ export const TabsContainer = styled.div`
     flex-wrap: wrap;
 `;
 
-export const TabsNav = styled.div`
+export const TabsNav = styled.nav`
     display:flex;
     flex-wrap: wrap;
     border-bottom: 0.005rem gray solid;
@@ -19,7 +19,6 @@ export const TabsPanel = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    padding: 2vw 0vw;
     color: lightgray;
 `;
 
@@ -38,6 +37,6 @@ export const Tab = styled.a`
 `;
 
 export const TabItem = styled.div`
-    ${(props) => props.dataKey === props.visibility ? `display: flex` : `display: none`}
+    ${(props) => props.dataKey === props.visibility ? `display: flex;` : `display: none`}
     
 `;

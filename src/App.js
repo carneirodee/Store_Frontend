@@ -4,6 +4,7 @@ import { Container, FooterContainer, SideContainer } from './components/commons/
 import { Title, Subtitle } from './components/commons/titles/Titles';
 import Tabs from './components/Tabs';
 import axios from 'axios';
+import General from './components/General';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
   const [title, setTitle] = useState('');
   const [genres, setGenres] = useState([]);
   const [year, setYear] = useState(0);
+  const [synopsis, setSynopsis] = useState('');
 
   useEffect(() => {
     axios.get(`https://sample-api-78c77.firebaseio.com/tv-shows/SHOW123.json`)
@@ -23,6 +25,7 @@ function App() {
         setCast(Cast)
         setGenres(Genres)
         setYear(Year)
+        setSynopsis(Synopsis)
         // console.log("Background", background, "Cast", cast, "Genres", genres);
       })
       .catch(err => {
@@ -39,7 +42,7 @@ function App() {
   const tabs = [
     {
       title: 'General',
-      component: <div>Hi</div>
+      component: <General synopsis={synopsis}/>
     },
     {
       title: 'Elenco',
@@ -81,10 +84,6 @@ function App() {
       </Container>
     );
   }
-
-  // return (
-  // )
-
 }
 
 export default App;
