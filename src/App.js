@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Container, FooterContainer, SideContainer } from './components/containers';
-import { Title, Subtitle } from './components/title/Titles';
+import { Container, FooterContainer, SideContainer } from './components/commons/containers';
+import { Title, Subtitle } from './components/commons/titles/Titles';
+import Tabs from './components/Tabs';
 import axios from 'axios';
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
         setCast(Cast)
         setGenres(Genres)
         setYear(Year)
-        console.log("Background", background, "Cast", cast, "Genres", genres);
+        // console.log("Background", background, "Cast", cast, "Genres", genres);
       })
       .catch(err => {
         console.log(err)
@@ -35,21 +36,24 @@ function App() {
     return listGenres;
   }
 
-  if (background === '') {
-    return (
-      <h1>I am loading :)</h1>
-    )
-  } else {
-    return (
-      <Container image={background}>
-        <Title>{title}</Title>
-        <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
-        <SideContainer></SideContainer>
-        <FooterContainer></FooterContainer>
-      </Container>
-    );
-  }
+  // if (background === '') {
+  //   return (
+  //     <h1>I am loading :)</h1>
+  //   )
+  // } else {
+  //   return (
+  //     <Container image={background}>
+  //       <Title>{title}</Title>
+  //       <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
+  //       <SideContainer></SideContainer>
+  //       <FooterContainer></FooterContainer>
+  //     </Container>
+  //   );
+  // }
 
+    return (
+      <Tabs></Tabs>
+    )
 
 }
 
