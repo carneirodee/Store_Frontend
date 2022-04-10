@@ -6,6 +6,7 @@ import Tabs from './components/Tabs';
 import axios from 'axios';
 import General from './components/General';
 import Cast from './components/Cast';
+import PlayCard from './components/PlayCard';
 
 
 function App() {
@@ -78,13 +79,14 @@ function App() {
     )
   } else {
     return (
-      <Container image={background}>
-        <Title>{title}</Title>
-        <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
-        <SideContainer><Tabs selectedTab={"0"} tabs={tabs1} /></SideContainer>
-        <FooterContainer><Tabs selectedTab={"0"} tabs={tabs}></Tabs>
-        </FooterContainer>
-      </Container>
+      // <Container image={background}>
+      //   <Title>{title}</Title>
+      //   <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
+      //   <SideContainer><Tabs selectedTab={"0"} tabs={tabs1} /></SideContainer>
+      //   <FooterContainer><Tabs selectedTab={"0"} tabs={tabs}></Tabs>
+      //   </FooterContainer>
+      // </Container>
+      <PlayCard/>
     );
   }
 
