@@ -1,10 +1,12 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Container, FooterContainer, SideContainer } from './components/commons/containers';
+import { Container, FooterContainer, SideContainer, MiniCardContainer } from './components/commons/containers';
 import { Title, Subtitle } from './components/commons/titles/Titles';
 import Tabs from './components/Tabs';
 import axios from 'axios';
 import General from './components/General';
+import Cast from './components/Cast';
+
 
 function App() {
 
@@ -42,11 +44,12 @@ function App() {
   const tabs = [
     {
       title: 'General',
-      component: <General synopsis={synopsis}/>
+      component: <General synopsis={synopsis} />
     },
     {
       title: 'Elenco',
-      component: <div>Elenco</div>
+      component: <Cast cast={cast} />
+
     },
     {
       title: 'Premiações',
@@ -84,6 +87,6 @@ function App() {
       </Container>
     );
   }
-}
 
+}
 export default App;

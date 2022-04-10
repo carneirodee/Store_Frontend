@@ -7,7 +7,7 @@ export const SideContainer = styled.aside`
     justify-content: flex-start;
     width: 25%;
     height: 58vh;
-    padding: 0 1vw 0 5vh;
+    padding: 0 1vw 0 2vw;
     position: absolute;
     top: 10vh;
     margin-right: 5vw;
