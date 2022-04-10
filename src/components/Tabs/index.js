@@ -3,12 +3,14 @@ import { TabsContainer, TabsNav, TabsPanel, Tab, TabItem } from './Tabs';
 
 function Tabs() {
 
-    const [currentTab, setCurrentTab] = useState(0);
+    const [currentTab, setCurrentTab] = useState('1');
 
     const goTo = (key) =>{
         setCurrentTab(key);
         console.log("Current Tab", key)
     }
+
+  
     return (
         <TabsContainer>
             <TabsNav>
