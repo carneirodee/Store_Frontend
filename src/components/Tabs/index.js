@@ -21,7 +21,7 @@ function Tabs(props) {
         <TabsContainer>
             <TabsNav>
                 {tabs.map((tab, key) => {
-                    return <Tab key={`${key}`} href="#" onClick={() => { goTo(`${key}`) }}>{tab.title}</Tab>
+                    return <Tab key={`${key}`} href="#"  dataKey={`${key}`} selected={currentTab} onClick={() => { goTo(`${key}`) }}>{tab.title.toUpperCase()}</Tab>
                 })}
             </TabsNav>
             <TabsPanel>

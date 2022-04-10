@@ -1,17 +1,18 @@
 
 import styled from "styled-components";
 
-export const Footer = styled.div`
+export const Footer = styled.footer`
     display: flex;
     flex-direction: column;
     align-self: center;
-    justify-content: flex-end;
-    width: 90%;
-    height: 20vh;
-    padding: 3vh 5vw;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 90vw;
+    height: 30vh;
     position: absolute;
-    bottom: 0vh;    
-    background-color: rgba(18,18,18, 1)
+    bottom: 0em;    
+    padding: 0 0 0 8vh;
+    background-color: rgba(0, 0 ,0, 1)
 `;
 
 export default Footer;

@@ -36,37 +36,54 @@ function App() {
     return listGenres;
   }
 
-  // if (background === '') {
-  //   return (
-  //     <h1>I am loading :)</h1>
-  //   )
-  // } else {
-  //   return (
-  //     <Container image={background}>
-  //       <Title>{title}</Title>
-  //       <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
-  //       <SideContainer></SideContainer>
-  //       <FooterContainer></FooterContainer>
-  //     </Container>
-  //   );
-  // }
-      const tabs =[
-        {
-          title: 'General',
-          component: <div>Hi</div>
-        },
-        {
-          title: 'Elenco',
-          component: <div>Elenco</div>
-        },
-        {
-          title: 'Premiações',
-          component: <div>Premiação</div>
-        }
-      ]
+  const tabs = [
+    {
+      title: 'General',
+      component: <div>Hi</div>
+    },
+    {
+      title: 'Elenco',
+      component: <div>Elenco</div>
+    },
+    {
+      title: 'Premiações',
+      component: <div>Premiação</div>
+    }
+  ]
+
+  const tabs1 = [
+    {
+      title: 'T1',
+      component: <div>Hi</div>
+    },
+    {
+      title: 'T2',
+      component: <div>Elenco</div>
+    },
+    {
+      title: 'T3',
+      component: <div>Premiação</div>
+    }
+  ]
+
+  if (background === '') {
     return (
-      <Tabs selectedTab={"0"} tabs={tabs}></Tabs>
+      <h1>I am loading :)</h1>
     )
+  } else {
+    return (
+      <Container image={background}>
+        <Title>{title}</Title>
+        <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
+        <SideContainer><Tabs selectedTab={"0"} tabs={tabs1} /></SideContainer>
+        <FooterContainer><Tabs selectedTab={"0"} tabs={tabs}></Tabs>
+        </FooterContainer>
+      </Container>
+    );
+  }
+
+  // return (
+  // )
 
 }
 

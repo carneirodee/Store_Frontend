@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
-export const SideContainer = styled.div`
+export const SideContainer = styled.aside`
     display: flex;
     flex-direction: column;
     align-self: flex-end;
-    justify-content: flex-end;
-    width: 20vw;
-    height: 50vh;
-    padding: 3vh 5vw;
+    justify-content: flex-start;
+    width: 25%;
+    height: 58vh;
+    padding: 0 1vw 0 5vh;
     position: absolute;
     top: 10vh;
+    margin-right: 5vw;
     background-color: rgba(0,0,0, 0.5);
 `;
 

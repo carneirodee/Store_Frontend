@@ -4,17 +4,14 @@ export const TabsContainer = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    border: 5px green solid;
-    padding: 0 1vh 0 1vh;
-
 `;
 
 export const TabsNav = styled.div`
     display:flex;
     flex-wrap: wrap;
-    border: 5px pink solid;
+    border-bottom: 0.005rem gray solid;
     width: auto;
-    padding: 0 2vw;
+    padding: 0;
 
 `;
 
@@ -22,15 +19,22 @@ export const TabsPanel = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    border: 5px black solid;
-    padding: 2vw 2vw;
+    padding: 2vw 0vw;
+    color: lightgray;
 `;
 
 export const Tab = styled.a`
     display: flex;
-    margin: 1px 1vw;
-    padding: 1vw 2vw;
-    border 5px blue solid;
+    padding: 1vw 1vw 1vw 1vw;
+    font-family: 'Nunito', cursive;
+    font-size: 2.2vh;
+    font-weight: bold;
+    vertical-align: text-bottom;
+    text-decoration: none; 
+    text-align: center;
+    color: gray;
+    ${(props) => props.dataKey === props.selected ? `border-bottom: 3px green solid; color: white; margin-bottom: -2px;` : `border: none`}
+
 `;
 
 export const TabItem = styled.div`

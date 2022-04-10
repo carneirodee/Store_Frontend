@@ -5,7 +5,7 @@ export const Title = styled.header`
     font-family: 'Nunito', cursive;
     font-weight: bold;
     line-height: 0.6;
-    font-size: 4rem;
+    font-size: 10vh;
     margin: 4vh 5vw 0 5vw;
 
 `;
