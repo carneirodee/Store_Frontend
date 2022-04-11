@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Container, FooterContainer, SideContainer } from './components/commons/containers';
 import { Title, Subtitle } from './components/commons/titles/Titles';
 import Tabs from './components/Tabs';
-import axios from 'axios';
 import General from './components/General';
 import Cast from './components/Cast';
 import Episodes from './components/Episodes';
 import { TelecineLogo } from './assets'
+import {getEpisodes, getInfo} from './api';
+import axios from 'axios';
+
 function App() {
 
   const [background, setBackground] = useState('')
@@ -19,7 +21,7 @@ function App() {
   const [episodes, setEpisodes] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://sample-api-78c77.firebaseio.com/tv-shows/SHOW123.json`)
+    getInfo()
       .then(res => {
         const { data } = res;
         const { Images, Cast, Genres, Synopsis, Title, Year } = data;
@@ -35,7 +37,7 @@ function App() {
         console.log(err)
       })
 
-    axios.get(`https://sample-api-78c77.firebaseio.com/episodes/SHOW123.json`)
+      getEpisodes()
       .then(res => {
         const { data } = res;
         setEpisodes(data)
