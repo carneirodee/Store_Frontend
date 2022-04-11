@@ -8,7 +8,7 @@ import Cast from './components/Cast';
 import Episodes from './components/Episodes';
 import { TelecineLogo } from './assets'
 import {getEpisodes, getInfo} from './api';
-import axios from 'axios';
+import { connect } from "react-redux";
 
 function App() {
 
@@ -31,7 +31,6 @@ function App() {
         setGenres(Genres)
         setYear(Year)
         setSynopsis(Synopsis)
-        // console.log("Background", background, "Cast", cast, "Genres", genres);
       })
       .catch(err => {
         console.log(err)
