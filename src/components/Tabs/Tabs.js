@@ -4,6 +4,7 @@ export const TabsContainer = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    
 `;
 
 export const TabsNav = styled.nav`
@@ -12,13 +13,15 @@ export const TabsNav = styled.nav`
     border-bottom: 0.005rem gray solid;
     width: auto;
     padding: 0;
-
+    >svg{
+        position: absolute;
+        right: 0;
+     }
 `;
 
 export const TabsPanel = styled.div`
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     color: lightgray;
 `;
 

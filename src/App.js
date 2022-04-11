@@ -7,8 +7,8 @@ import axios from 'axios';
 import General from './components/General';
 import Cast from './components/Cast';
 import PlayCard from './components/PlayCard';
-
-
+import Episodes from './components/Episodes';
+import {TelecineLogo} from './assets'
 function App() {
 
   const [background, setBackground] = useState('')
@@ -17,6 +17,7 @@ function App() {
   const [genres, setGenres] = useState([]);
   const [year, setYear] = useState(0);
   const [synopsis, setSynopsis] = useState('');
+  const [episodes, setEpisodes] = useState([]);
 
   useEffect(() => {
     axios.get(`https://sample-api-78c77.firebaseio.com/tv-shows/SHOW123.json`)
@@ -35,7 +36,15 @@ function App() {
         console.log(err)
       })
 
-  }, [background, genres])
+    axios.get(`https://sample-api-78c77.firebaseio.com/episodes/SHOW123.json`)
+      .then(res => {
+        const { data } = res;
+        setEpisodes(data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [background, genres, episodes])
 
   const getGenres = () => {
     const listGenres = genres.length > 0 ? genres.map(genre => genre.Title.toUpperCase() + " / ") : ''
@@ -54,22 +63,25 @@ function App() {
     },
     {
       title: 'Premiações',
-      component: <div>Premiação</div>
+      component: <Cast cast={cast} />
     }
   ]
 
   const tabs1 = [
     {
       title: 'T1',
-      component: <div>Hi</div>
+      component:<></>
+
     },
     {
       title: 'T2',
-      component: <div>Elenco</div>
+      component: <></>
+
     },
     {
       title: 'T3',
-      component: <div>Premiação</div>
+      component: <SideContainer><Episodes episodes={episodes} /></SideContainer>
+
     }
   ]
 
@@ -79,14 +91,13 @@ function App() {
     )
   } else {
     return (
-      // <Container image={background}>
-      //   <Title>{title}</Title>
-      //   <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
-      //   <SideContainer><Tabs selectedTab={"0"} tabs={tabs1} /></SideContainer>
-      //   <FooterContainer><Tabs selectedTab={"0"} tabs={tabs}></Tabs>
-      //   </FooterContainer>
-      // </Container>
-      <PlayCard/>
+      <Container image={background}>
+        <Title>{title}</Title>
+        <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
+        <SideContainer><Tabs selectedTab={"0"} tabs={tabs1}/></SideContainer>
+        <FooterContainer><Tabs selectedTab={"0"} tabs={tabs} icon={<TelecineLogo/>}></Tabs>
+        </FooterContainer>
+      </Container>
     );
   }
 

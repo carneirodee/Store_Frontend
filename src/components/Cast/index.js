@@ -10,7 +10,6 @@ function Cast(props) {
     return (
         <>
             {cast.map((actor, key) =>{
-                console.log(actor)
                 return <MiniCardContainer key={key}>{actor.Name}</MiniCardContainer>
             })}
         </>

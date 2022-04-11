@@ -5,13 +5,26 @@ export const SideContainer = styled.aside`
     flex-direction: column;
     align-self: flex-end;
     justify-content: flex-start;
-    width: 25%;
+    width: 30vw;
     height: 58vh;
-    padding: 0 1vw 0 2vw;
     position: absolute;
     top: 10vh;
     margin-right: 5vw;
-    background-color: rgba(0,0,0, 0.5);
-`;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    ::-webkit-scrollbar {
+        width: 1px;
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: transparent; 
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: transparent; 
+      }
+    `;
 
 export default SideContainer;
