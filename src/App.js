@@ -1,14 +1,13 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Container, FooterContainer, SideContainer, MiniCardContainer } from './components/commons/containers';
+import { Container, FooterContainer, SideContainer } from './components/commons/containers';
 import { Title, Subtitle } from './components/commons/titles/Titles';
 import Tabs from './components/Tabs';
 import axios from 'axios';
 import General from './components/General';
 import Cast from './components/Cast';
-import PlayCard from './components/PlayCard';
 import Episodes from './components/Episodes';
-import {TelecineLogo} from './assets'
+import { TelecineLogo } from './assets'
 function App() {
 
   const [background, setBackground] = useState('')
@@ -46,10 +45,34 @@ function App() {
       })
   }, [background, genres, episodes])
 
-  const getGenres = () => {
+  const sanitizeGenre = () => {
     const listGenres = genres.length > 0 ? genres.map(genre => genre.Title.toUpperCase() + " / ") : ''
     return listGenres;
   }
+
+  const sanitizeEpisodes = (list, keyGetter) => {
+    const map = new Map();
+    const mapToArray = [];
+    list.forEach((item) => {
+      if (item != null) {
+        const key = keyGetter(item);
+        const collection = map.get(key);
+        if (!collection) {
+          map.set(key, [item]);
+        } else {
+          collection.push(item);
+        }
+      }
+    });
+    for (const [key, value] of map.entries()) {
+      mapToArray.push({ season: key, episodes: value });
+    }
+
+    return mapToArray;
+  }
+
+  const sanitizedEpisodes = sanitizeEpisodes(episodes, episode => episode.SeasonNumber);
+
 
   const tabs = [
     {
@@ -67,23 +90,12 @@ function App() {
     }
   ]
 
-  const tabs1 = [
-    {
-      title: 'T1',
-      component:<></>
+  const tabs1 = sanitizedEpisodes.map((epi) => {
+    return {title : 'T'+ epi.season, component: <Episodes episodes={epi.episodes}/>}
+  })
 
-    },
-    {
-      title: 'T2',
-      component: <></>
 
-    },
-    {
-      title: 'T3',
-      component: <SideContainer><Episodes episodes={episodes} /></SideContainer>
-
-    }
-  ]
+  const sanitizedGenre = sanitizeGenre();
 
   if (background === '') {
     return (
@@ -93,9 +105,10 @@ function App() {
     return (
       <Container image={background}>
         <Title>{title}</Title>
-        <Subtitle>80% INDICADO / {getGenres()} {year} / EUA / 14</Subtitle>
-        <SideContainer><Tabs selectedTab={"0"} tabs={tabs1}/></SideContainer>
-        <FooterContainer><Tabs selectedTab={"0"} tabs={tabs} icon={<TelecineLogo/>}></Tabs>
+        {console.log(sanitizedEpisodes)}
+        <Subtitle>80% INDICADO / {sanitizedGenre} {year} / EUA / 14</Subtitle>
+        <SideContainer><Tabs selectedTab={"0"} tabs={tabs1} /></SideContainer>
+        <FooterContainer><Tabs selectedTab={"0"} tabs={tabs} icon={<TelecineLogo />}></Tabs>
         </FooterContainer>
       </Container>
     );

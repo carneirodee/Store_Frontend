@@ -10,13 +10,8 @@ function Tabs(props) {
 
     const goTo = (key) => {
         setCurrentTab(key);
-        console.log("Current Tab", key)
     }
-
-    useEffect(() =>{
-        console.log('USE', typeof currentTab)
-    }, [currentTab])
-
+    
     return (
         <TabsContainer>
             <TabsNav>

@@ -24,7 +24,7 @@ export const Title = styled.h4`
     width: 25vw;
     align-self: flex-start;
     font-famiy: 'Nunito', cursive;
-    margin: 2vw 0 1vh 1vw;
+    margin: 2vw 0 2vh 1vw;
 
 `;
 
@@ -41,7 +41,7 @@ export const Thumbnail = styled.div`
 `;
 
 export const ParagraphSynopsis = styled(Paragraph)`
-    padding: 5vh 5vw 2vh 5vw;
+    padding: 2vh 2vw;
 `;
 
 export const WatchProgress = styled.progress`
@@ -60,4 +60,5 @@ export const Play = styled(PlayButton)`
     transform: scale(0.9);
     display: flex;
     align-self: flex-end;
+    padding-bottom: 2vh;
 `;

@@ -7,11 +7,13 @@ function Episodes(props) {
 
     return (
         <div>
-            {episodes.map((episode, key) => {
-                if (episode != null) {
-                    return <PlayCard key={key} episodeData={episode} />
-                }
-            })}
+            {episodes ?
+                episodes.map((episode, key) => {
+                    if (episode != null) {
+                        return <PlayCard key={key} episodeData={episode} />
+                    }
+                })
+                : <></>}
         </div>
     )
 }
