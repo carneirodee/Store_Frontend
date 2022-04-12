@@ -1,11 +1,10 @@
 
 import { combineReducers } from 'redux';
-import { getInfo } from './info.reducer';
-import { getEpisodes} from './episodes.reducer';
+import {infoReducer} from './info.reducer';
+import {episodesReducer} from './episodes.reducer';
 
-const reducers = combineReducers({
-	getInfo,
-	getEpisodes,
-})
-
-export default reducers;
+export default combineReducers({
+	infoReducer,
+	episodesReducer,
+  });
+  

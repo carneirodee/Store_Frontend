@@ -1,38 +1,33 @@
 const INITIAL_STATE ={
+    isLoadingInfo: false,
     info : {
-        Cast: [
-        ],
-        Genres: [
-        ],
-        ID: 0,
-        Images: {
-            Background: ""
-        },
-        Synopsis: "",
-        Title: "",
-        Year: 0
     },
     errorData: [],
     error: false
 }
 
-export const getInfo = (state = INITIAL_STATE, action) => {
+export const infoReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'GET_INFO_REQUEST':
+            console.log(action)
             return {
                 ...state,
-                episodes: action.data,
+                isLoadingInfo: true,
             };
         case 'GET_INFO_SUCCESS':
+            console.log(action)
+            const { data } = action;
             return {
                 ...state,
-                episodes: action.data,
+                info: data,
+                isLoadingInfo: false,
             };
         case 'GET_INFO_ERROR':
+            console.log(action)
             return {
                 ...state,
                 errorData: action.data,
-                error: false
+                error: true
             };
         default:
             return state;
