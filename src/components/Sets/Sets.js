@@ -27,4 +27,13 @@ export const SetItem = styled.a`
     >svg{
         margin: 0.5vw 0.5vh;
     }
+    ${props => props.actived && `
+    color: green;
+    g , path{
+        stroke: green
+      };
+    circle {
+        fill: green
+    }
+      `}
 `;

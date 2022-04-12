@@ -6,6 +6,7 @@ import PlayButton from './PlayButton';
 import RecButton from './RecButton';
 import SadButton from './SadButton';
 import ShareButton from './ShareButton';
+import MinusButton from './MinusButton';
 
 
-export { AddButton, CloseButton, HappyButton, TelecineLogo, PlayButton, SadButton, RecButton, ShareButton };
+export { AddButton, CloseButton, HappyButton, TelecineLogo, PlayButton, SadButton, RecButton, ShareButton, MinusButton};
