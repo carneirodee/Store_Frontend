@@ -58,7 +58,7 @@ function Sets() {
                 <RecButton />
                 Gravar
             </SetItem >
-            <SetItem actived={onShare} onClick={() => shareOn()} href="#">
+            <SetItem actived={onShare} onClick={() => onShare()} href="#">
                 <ShareButton />
                 Compartilhar
             </SetItem>
