@@ -1,10 +1,12 @@
-import styled from "styled-components";
+import { TouchBallLoading } from 'react-loadingg';
+import { Container } from '../components/commons/containers'
 
-const Loading = styled.h1`
-    display: flex;
-    color: black;
-    background-color: white;
+function Loading() {
 
-`;
-
+    return (
+        <Container>
+            <TouchBallLoading color={"green"} size={"large"} />
+        </Container>
+    );
+}
 export default Loading;

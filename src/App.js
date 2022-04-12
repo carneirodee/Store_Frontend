@@ -4,6 +4,7 @@ import { fetchEpisodes } from './actions/episodes.actions';
 import { fetchInfo } from './actions/info.actions';
 import { useDispatch, useSelector } from "react-redux";
 import HomePage from './pages/HomePage';
+import Loading from './pages/Loading';
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
 
   if (isLoadingEpisodes === true && isLoadingInfo === true) {
     return (
-      <h1>I am loading :)</h1>
+     <Loading/>
     )
   } else {
     const { Images, Cast, Genres, Synopsis, Title, Year } = infoState.info;
