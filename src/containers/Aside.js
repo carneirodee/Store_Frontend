@@ -36,8 +36,8 @@ function Aside(props) {
       return { title: 'T' + epi.season, component: <Episodes episodes={epi.episodes} /> }
     })
     : [{ title: 'T', component: <></> },
-    { title: 'T' , component: <></> },
-    { title: 'T' , component: <></> }]
+    { title: 'T', component: <></> },
+    { title: 'T', component: <></> }]
 
 
   return (
