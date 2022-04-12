@@ -31,9 +31,14 @@ function Aside(props) {
 
   const sanitizedEpisodes = sanitizeEpisodes(episodes, episode => episode.SeasonNumber);
 
-  const tabs1 = sanitizedEpisodes.map((epi) => {
-    return { title: 'T' + epi.season, component: <Episodes episodes={epi.episodes} /> }
-  })
+  const tabs1 = sanitizedEpisodes.length > 0 ?
+    sanitizedEpisodes.map((epi) => {
+      return { title: 'T' + epi.season, component: <Episodes episodes={epi.episodes} /> }
+    })
+    : [{ title: 'T', component: <></> },
+    { title: 'T' , component: <></> },
+    { title: 'T' , component: <></> }]
+
 
   return (
     <SideContainer><Tabs selectedTab={"0"} tabs={tabs1} /></SideContainer>

@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-    isLoadingEpisodes: false,
+    isLoadingEpisodes: true,
     episodes: [],
     errorData: [],
     error: false
@@ -15,10 +15,12 @@ export const episodesReducer = (state = INITIAL_STATE, action) => {
             };
         case 'GET_EPISODES_SUCCESS':
             console.log(action)
+            const { episodes } = action;
+
             return {
                 ...state,
                 isLoadingEpisodes: false,
-                episodes: action.data,
+                episodes: episodes,
             };
         case 'GET_EPISODES_ERROR':
             console.log(action)

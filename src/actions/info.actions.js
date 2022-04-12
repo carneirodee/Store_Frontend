@@ -10,7 +10,7 @@ export const fetchInfo = () => async dispatch => {
         const response = await getInfo()
         return dispatch({
             type: GET_INFO_SUCCESS,
-            data: response.data
+            info: response.data
         });
     } catch (err) {
         return dispatch({ type: GET_INFO_ERROR, err });

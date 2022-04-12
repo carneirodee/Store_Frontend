@@ -1,5 +1,5 @@
 const INITIAL_STATE ={
-    isLoadingInfo: false,
+    isLoadingInfo: true,
     info : {
     },
     errorData: [],
@@ -16,10 +16,10 @@ export const infoReducer = (state = INITIAL_STATE, action) => {
             };
         case 'GET_INFO_SUCCESS':
             console.log(action)
-            const { data } = action;
+            const { info } = action;
             return {
                 ...state,
-                info: data,
+                info: info,
                 isLoadingInfo: false,
             };
         case 'GET_INFO_ERROR':

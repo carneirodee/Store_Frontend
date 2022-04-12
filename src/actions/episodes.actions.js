@@ -10,7 +10,7 @@ export const fetchEpisodes = () => async(dispatch) => {
         const response = await getEpisodes();
         return dispatch({
             type: GET_EPISODES_SUCCESS,
-            data: response.data,
+            episodes: response.data,
         });
     } catch (err) {
         return dispatch({ type: GET_EPISODES_ERROR, err });

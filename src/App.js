@@ -1,12 +1,9 @@
 import './App.css';
 import React, { useEffect } from 'react';
-import { Container } from './components/commons/containers';
 import { fetchEpisodes } from './actions/episodes.actions';
 import { fetchInfo } from './actions/info.actions';
 import { useDispatch, useSelector } from "react-redux";
-import Header from './containers/Header';
-import Aside from './containers/Aside';
-import Footer from './containers/Footer';
+import HomePage from './pages/HomePage';
 
 function App() {
 
@@ -27,12 +24,18 @@ function App() {
     )
   } else {
     const { Images, Cast, Genres, Synopsis, Title, Year } = infoState.info;
+    console.log("Episodes",episodesState)
+    
     return (
-      <Container image={`'${Images.Background}'`}>
-        <Header title={Title} genres={Genres} year={Year} />
-        <Aside episodes={episodesState.episodes} />
-        <Footer cast={Cast} synopsis={Synopsis} />
-      </Container>
+      <HomePage 
+        cast={Cast} 
+        synopsis={Synopsis} 
+        images={Images} 
+        title={Title} 
+        year={Year} 
+        episodes={episodesState.episodes} 
+        genres={Genres}
+      />
     );
   }
 
