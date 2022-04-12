@@ -27,10 +27,15 @@ To run the app
 ```bash
 $  yarn start
 ```
+## Screenshots
 
-![Page](https://user-images.githubusercontent.com/44411176/107170494-38e23f00-699f-11eb-9a47-bd7c8cac419d.png)  
+1. Main Page
+<img width="1440" alt="Captura de Tela 2022-04-12 às 10 58 58" src="https://user-images.githubusercontent.com/44411176/162984484-507a254b-5064-42e0-9f86-5d7e2d311896.png">
 
-![Page Mobile](https://user-images.githubusercontent.com/44411176/107170494-38e23f00-699f-11eb-9a47-bd7c8cac419d.png)  
+2. Mobile Page 
+<img width="329" alt="Captura de Tela 2022-04-12 às 11 01 27" src="https://user-images.githubusercontent.com/44411176/162984654-23be2134-fbe6-4fd1-a268-4ffdd7cd074a.png">
+
+
 
 ## Code Snippets
 
