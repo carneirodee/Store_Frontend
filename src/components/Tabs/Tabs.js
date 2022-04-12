@@ -19,8 +19,7 @@ export const TabsNav = styled.nav`
      }
      @media(max-width: 800px) {
         >svg{
-            position: absolute;
-            right: 2vw;
+            display: none;
          }
       }
       @media(max-width: 450px) {
@@ -32,7 +31,7 @@ export const TabsNav = styled.nav`
 
 export const TabsPanel = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     color: lightgray;
 `;
 

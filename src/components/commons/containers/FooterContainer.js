@@ -15,7 +15,7 @@ export const FooterContainer = styled.footer`
     flex-wrap: wrap;
     @media(max-width: 800px) {
         width: auto;
-        padding: 0;
+        padding: 0 0 0 5vw;
       }
       @media(max-width: 450px) {
         padding: 0 0 0 5vw;

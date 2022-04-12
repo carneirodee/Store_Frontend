@@ -27,7 +27,10 @@ export const Title = styled.h4`
     margin: 2vw 0 2vh 1vw;
     @media(max-width: 800px) {
         width: 70vw;
-          }
+    }
+    @media(max-width: 1024px) {
+        width: 75vw;
+    }
 `;
 
 export const Thumbnail = styled.div`

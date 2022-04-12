@@ -18,7 +18,7 @@ export const SideContainer = styled.aside`
     ::-webkit-scrollbar-thumb {
         background: transparent; 
       }
-      @media(max-width: 800px) {
+      @media(max-width: 1024px) {
         align-self: center;
         left: 10vw;
         top: 20vh;
