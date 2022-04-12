@@ -1,4 +1,4 @@
-# SimpleMap-IonicArcGIS
+# Watchflix
 
 Simple page to show information about a TV SHOW.
 ## Requirements
