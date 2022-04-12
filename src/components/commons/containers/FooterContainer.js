@@ -1,7 +1,7 @@
 
 import styled from "styled-components";
 
-export const Footer = styled.footer`
+export const FooterContainer = styled.footer`
     display: flex;
     align-self: center;
     justify-content: flex-start;
@@ -15,4 +15,4 @@ export const Footer = styled.footer`
    
 `;
 
-export default Footer;
+export default FooterContainer;
