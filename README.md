@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+# SimpleMap-IonicArcGIS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple page to show information about a TV SHOW.
+## Requirements
 
-## Available Scripts
+- Node.js
+## Libs
 
-In the project directory, you can run:
+- ReactJS
+- Styled Components
+- Redux
+- Redux Thunk
+- React Redux
+- React Loading 
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Run command on the root folder
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+$  yarn install 
+```
+## Running
 
-### `npm test`
+To run the app
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+$  yarn start
+```
 
-### `npm run build`
+![Page](https://user-images.githubusercontent.com/44411176/107170494-38e23f00-699f-11eb-9a47-bd7c8cac419d.png)  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Page Mobile](https://user-images.githubusercontent.com/44411176/107170494-38e23f00-699f-11eb-9a47-bd7c8cac419d.png)  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Code Snippets
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ 1. Using Styled Components
+  
+  ```javascript
+  ```
 
-### `npm run eject`
+ 2. Using React Redux
+   
+    2.1. Creating store 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ```javascript
+        import { compose, createStore, applyMiddleware } from "redux";
+        import thunk from "redux-thunk";
+        import rootReducer from "../reducers";
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+            ...
+            //Passing middleware and reducers
+            const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
+            ...
+    ```
+    2.2 Action
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```javascript
+        import { getEpisodes } from '../api';
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+        //Defining types
+        export const GET_EPISODES_REQUEST = "GET_EPISODES_REQUEST";
+        export const GET_EPISODES_SUCCESS = "GET_EPISODES_SUCCESS";
+        export const GET_EPISODES_ERROR = "GET_EPISODES_ERROR"
 
-## Learn More
+        //Calling api inside redux action
+        export const fetchEpisodes = () => async(dispatch) => {
+            await dispatch({ type: GET_EPISODES_REQUEST, isLoadingEpisodes: false });
+            try {
+                const response = await getEpisodes();
+                return dispatch({
+                    type: GET_EPISODES_SUCCESS,
+                    episodes: response.data,
+                });
+            } catch (err) {
+                return dispatch({ type: GET_EPISODES_ERROR, err });
+            }
+        };
+        ...
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    2.3 Reducer 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```javascript
+    //Defining inital state
+       const INITIAL_STATE = {
+            isLoadingEpisodes: true,
+            episodes: [],
+            errorData: [],
+            error: false
+        }
 
-### Code Splitting
+        //Manipulate state with a reducer by types 
+        export const episodesReducer = (state = INITIAL_STATE, action) => {
+            switch (action.type) {
+                case 'GET_EPISODES_REQUEST':
+                    console.log(action)
+                    return {
+                        ...state,
+                        isLoadingEpisodes: true,
+                    };
+                case 'GET_EPISODES_SUCCESS':
+                    console.log(action)
+                    const { episodes } = action;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+                    return {
+                        ...state,
+                        isLoadingEpisodes: false,
+                        episodes: episodes,
+                    };
+                case 'GET_EPISODES_ERROR':
+                    console.log(action)
+                    return {
+                        ...state,
+                        errorData: action.data,
+                        error: true
+                    };
+                default:
+                    return state;
+            }
 
-### Analyzing the Bundle Size
+        }
+    ```
+      
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+ 3. Using React Loading 
 
-### Making a Progressive Web App
+ ```javascript
+    import { TouchBallLoading } from 'react-loadingg';
+     ...
+     //Defining color and size of loadingg 
+        <TouchBallLoading color={"green"} size={"large"} />
+     ...
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
