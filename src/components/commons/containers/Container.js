@@ -11,6 +11,10 @@ const Container = styled.div`
     background-size: cover;
     background-position: center top;
 
+    @media(max-width: 800px) {
+        flex-direction: row;
+        width: auto;
+      }
 `;
 
 export default Container;

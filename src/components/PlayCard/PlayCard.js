@@ -25,7 +25,9 @@ export const Title = styled.h4`
     align-self: flex-start;
     font-famiy: 'Nunito', cursive;
     margin: 2vw 0 2vh 1vw;
-
+    @media(max-width: 800px) {
+        width: 70vw;
+          }
 `;
 
 export const Thumbnail = styled.div`

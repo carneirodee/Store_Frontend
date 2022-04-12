@@ -15,15 +15,21 @@ export const SideContainer = styled.aside`
     ::-webkit-scrollbar {
         width: 1px;
       }
-       
-      /* Handle */
-      ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb {
         background: transparent; 
       }
-      
-      /* Handle on hover */
-      ::-webkit-scrollbar-thumb:hover {
-        background: transparent; 
+      @media(max-width: 800px) {
+        align-self: center;
+        left: 10vw;
+        top: 20vh;
+        width: 80vw;
+        height: 58vh;
+      }
+
+      @media(max-width: 450px) {
+        left: 5vw;
+        width: 90vw;
+
       }
     `;
 

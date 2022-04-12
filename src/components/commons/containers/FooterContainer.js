@@ -12,7 +12,15 @@ export const FooterContainer = styled.footer`
     bottom: 0em;    
     padding: 0 0 0 8vh;
     background-color: rgba(0, 0 ,0, 1);
-   
+    flex-wrap: wrap;
+    @media(max-width: 800px) {
+        width: auto;
+        padding: 0;
+      }
+      @media(max-width: 450px) {
+        padding: 0 0 0 5vw;
+
+      }
 `;
 
 export default FooterContainer;

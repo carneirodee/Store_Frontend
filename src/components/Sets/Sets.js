@@ -8,6 +8,9 @@ export const SetsContainer = styled.section`
     background-color: black;
     width: 50vw;
     color: gray;
+    @media(max-width: 800px) {
+        width: 100vw;
+        }
 `;
 
 export const SetItem = styled.a`

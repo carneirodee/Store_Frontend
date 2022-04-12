@@ -17,6 +17,17 @@ export const TabsNav = styled.nav`
         position: absolute;
         right: 0;
      }
+     @media(max-width: 800px) {
+        >svg{
+            position: absolute;
+            right: 2vw;
+         }
+      }
+      @media(max-width: 450px) {
+        >svg{
+           display: none;
+         }
+      }
 `;
 
 export const TabsPanel = styled.div`
@@ -35,8 +46,12 @@ export const Tab = styled.a`
     text-decoration: none; 
     text-align: center;
     color: gray;
-    ${(props) => props.dataKey === props.selected ? `border-bottom: 3px green solid; color: white; margin-bottom: -2px;` : `border: none`}
+    @media(max-width: 450px) {
+        font-size: 3.5vw;
 
+      }
+    ${(props) => props.dataKey === props.selected ? `border-bottom: 3px green solid; color: white; margin-bottom: -2px;` : `border: none`}
+    
 `;
 
 export const TabItem = styled.div`

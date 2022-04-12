@@ -8,6 +8,9 @@ export const SynopsisContainer = styled.article`
     flex-wrap: wrap;
     padding: 2vw;
     background-color: black;
+    @media(max-width: 800px) {
+       display: none;
+        }
 `;
 
 export const Title = styled.h2`
