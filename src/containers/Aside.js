@@ -1,7 +1,11 @@
 import React from 'react';
 import { SideContainer } from '../components/commons/containers';
 import Tabs from '../components/Tabs';
-import Episodes from '../components/Episodes';
+import Products from '../components/Products';
+import Card from '../components/Card';
+import Login from '../components/Login';
+import Register from '../components/Register';
+import AddProduct from '../components/AddProduct';
 
 
 function Aside(props) {
@@ -31,17 +35,32 @@ function Aside(props) {
 
   const sanitizedEpisodes = sanitizeEpisodes(episodes, episode => episode.SeasonNumber);
 
-  const tabs1 = sanitizedEpisodes.length > 0 ?
-    sanitizedEpisodes.map((epi) => {
-      return { title: 'T' + epi.season, component: <Episodes episodes={epi.episodes} /> }
-    })
-    : [{ title: 'T', component: <></> },
-    { title: 'T', component: <></> },
-    { title: 'T', component: <></> }]
-
+  const tabs1 =
+    [{ title: 'Products', component: <Products episodes={[{}, {}, {}, {}, {}, {}, {}, {}, {},]} /> },
+    {
+      title: 'Register', component:
+        <Card title="Register"
+          description={<Register />}
+          buttonValue="Register"
+          key={1}> </Card>
+    },
+    {
+      title: 'Login', component: <Card title="Login"
+        description={<Login />}
+        buttonValue="Login"
+        key={1}> </Card>
+    },
+    {
+      title: 'Dashboard', component: <Card title="Adding Product"
+        description={<AddProduct />}
+        buttonValue="Add"
+        key={1}> </Card>
+    },
+    { title: 'Cart', component: <Products episodes={[{}, {}, {}, {}, {}, {}, {}, {}, {},]} /> }
+  ]
 
   return (
-    <SideContainer><Tabs selectedTab={"0"} tabs={tabs1} /></SideContainer>
+    <><Tabs selectedTab={"0"} tabs={tabs1} /></>
   );
 
 }

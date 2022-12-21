@@ -3,13 +3,13 @@ import styled from "styled-components";
 export const SideContainer = styled.aside`
     display: flex;
     flex-direction: column;
-    align-self: flex-end;
+    align-self: flex-start;
     justify-content: flex-start;
     width: 30vw;
     height: 58vh;
     position: absolute;
     top: 10vh;
-    margin-right: 5vw;
+    margin-left: 5vw;
     overflow-y: scroll;
     overflow-x: hidden;
     ::-webkit-scrollbar {

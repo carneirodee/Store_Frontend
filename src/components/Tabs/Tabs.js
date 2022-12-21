@@ -31,8 +31,8 @@ export const TabsNav = styled.nav`
 
 export const TabsPanel = styled.div`
     display: flex;
-    flex-direction: column;
-    color: lightgray;
+    flex-direction: row;
+    color: gray;
 `;
 
 export const Tab = styled.a`
@@ -44,16 +44,22 @@ export const Tab = styled.a`
     vertical-align: text-bottom;
     text-decoration: none; 
     text-align: center;
-    color: gray;
+    color: black;
     @media(max-width: 450px) {
         font-size: 3.5vw;
 
       }
-    ${(props) => props.dataKey === props.selected ? `border-bottom: 3px green solid; color: white; margin-bottom: -2px;` : `border: none`}
+    ${(props) => props.dataKey === props.selected ? `border-bottom: 3px black solid; color: gray; margin-bottom: -2px;` : `border: none`}
     
 `;
 
 export const TabItem = styled.div`
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 95vh;
+    overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
     ${(props) => props.dataKey === props.visibility ? `display: flex;` : `display: none`}
     
 `;

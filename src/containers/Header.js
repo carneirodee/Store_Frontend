@@ -13,7 +13,6 @@ function Header(props) {
 
     return (
         <>
-            <Title>{title}</Title>
             <Subtitle>80% INDICADO / {sanitizedGenre} {year} / EUA / 14</Subtitle>
         </>
 

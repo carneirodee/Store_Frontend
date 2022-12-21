@@ -10,9 +10,7 @@ function Home(props) {
 
     return (
       <Container image={`'${images.Background}'`}>
-        <Header title={title} genres={genres} year={year} />
         <Aside episodes={episodes} />
-        <Footer cast={cast} synopsis={synopsis} />
       </Container>
     );
   }

@@ -23,6 +23,10 @@ export const Title = styled.header`
 `;
 
 export const Subtitle = styled.h1`
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-content: flex-end;
     color: rgb(180, 180, 180)  !important;
     font-family: 'Nunito', sans-serif;
     font-weight: lighter;
