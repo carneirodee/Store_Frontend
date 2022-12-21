@@ -1,4 +1,5 @@
-import { getEpisodes } from './episodes.api';
+import { getProducts } from './products.api';
 import { getInfo } from './info.api';
+import { getCart } from './cart.api';
 
-export { getEpisodes, getInfo };
+export { getProducts, getCart, getInfo };

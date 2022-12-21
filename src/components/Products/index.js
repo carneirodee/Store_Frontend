@@ -3,17 +3,21 @@ import ProductCard from '../ProductCard';
 
 function Products(props) {
 
-    const { episodes } = props;
+    const { products } = props;
 
     return (
         <>
-            {episodes ?
-                episodes.map((episode, key) => {
+            {products ?
+                products.map((episode, key) => {
                     if (episode != null) {
-                        return <ProductCard title="title"
-                        description="description"
+                        return <ProductCard title={episode.name}
+                        description={episode.description}
+                        icon={""}
+                        price={episode.price}
                         buttonValue="Add to Cart"
-                        key={1}> </ProductCard>
+                        key={1}>
+                       <img src={episode.image}/>
+                        </ProductCard>
                     }
                 })
                 : <></>}

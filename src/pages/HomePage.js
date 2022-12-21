@@ -6,11 +6,11 @@ import Footer from '../containers/Footer';
 
 function Home(props) {
 
-  const {cast, synopsis, images, title, episodes, genres, year } = props;
+  const {cast, synopsis, images, title, products, genres, year } = props;
 
     return (
-      <Container image={`'${images.Background}'`}>
-        <Aside episodes={episodes} />
+      <Container>
+        <Aside products={products} />
       </Container>
     );
   }

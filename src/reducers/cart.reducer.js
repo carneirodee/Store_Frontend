@@ -1,28 +1,28 @@
 const INITIAL_STATE = {
-    isLoadingEpisodes: true,
-    episodes: [],
+    isLoadingCart: true,
+    cart: [],
     errorData: [],
     error: false
 }
 
-export const episodesReducer = (state = INITIAL_STATE, action) => {
+export const cartReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'GET_EPISODES_REQUEST':
+        case 'GET_CART_REQUEST':
             console.log(action)
             return {
                 ...state,
-                isLoadingEpisodes: true,
+                isLoadingCart: true,
             };
-        case 'GET_EPISODES_SUCCESS':
+        case 'GET_CART_SUCCESS':
             console.log(action)
-            const { episodes } = action;
+            const { cart } = action;
 
             return {
                 ...state,
-                isLoadingEpisodes: false,
-                episodes: episodes,
+                isLoadingCart: false,
+                cart: cart,
             };
-        case 'GET_EPISODES_ERROR':
+        case 'GET_CART_ERROR':
             console.log(action)
             return {
                 ...state,

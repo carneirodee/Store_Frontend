@@ -3,12 +3,12 @@ import ProductCard from '../ProductCard';
 
 function Cart(props) {
 
-    const { episodes } = props;
+    const { products } = props;
 
     return (
         <>
-            {episodes ?
-                episodes.map((episode, key) => {
+            {products ?
+                products.map((episode, key) => {
                     if (episode != null) {
                         return <ProductCard title="title"
                         description="description"
