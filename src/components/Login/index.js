@@ -14,8 +14,8 @@ function Login(props) {
 
             <Label for="lname">Password:</Label>
             <br></br>
-            <Input type="text" id="lname" name="lname">
-                </Input>
+            <Input type="password" id="lname" name="lname">
+            </Input>
         </Form>
     )
 }

@@ -19,7 +19,7 @@
 .card button{
     align-self: center;
     padding: 1vw 3vw;
-    font-size: large;
+    font-size: 3vh;
     font-family: 'Nunito', cursive;
     border: 2px solid black;
     box-shadow: 5px 5px 0  black;

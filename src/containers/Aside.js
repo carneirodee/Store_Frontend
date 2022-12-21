@@ -6,6 +6,8 @@ import Card from '../components/Card';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import AddProduct from '../components/AddProduct';
+import { login } from '../actions/auth.actions';
+import { registerUser } from '../actions/user.action';
 
 
 function Aside(props) {
