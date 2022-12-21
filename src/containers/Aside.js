@@ -2,6 +2,7 @@ import React from 'react';
 import { SideContainer } from '../components/commons/containers';
 import Tabs from '../components/Tabs';
 import Products from '../components/Products';
+import Cart from '../components/Cart';
 import Card from '../components/Card';
 import Login from '../components/Login';
 import Register from '../components/Register';
@@ -56,7 +57,7 @@ function Aside(props) {
         buttonValue="Add"
         key={1}> </Card>
     },
-    { title: 'Cart', component: <Products episodes={[{}, {}, {}, {}, {}, {}, {}, {}, {},]} /> }
+    { title: 'Cart', component: <Cart episodes={[{}, {}, {}, {}, {}, {}, {}, {}, {},]} /> }
   ]
 
   return (
