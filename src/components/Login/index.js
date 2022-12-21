@@ -14,7 +14,8 @@ function Login(props) {
     })
 
     function loginF() {
-     dispatch(login())
+     let loginData = JSON.stringify(loginForm);
+     dispatch(login(loginData))
     }
 
     const { title, imgSrc, description, buttonValue, onclick } = props;
