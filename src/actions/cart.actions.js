@@ -10,7 +10,7 @@ export const fetchCart = () => async(dispatch) => {
         const response = await getCart();
         return dispatch({
             type: GET_CART_SUCCESS,
-            products: response.data,
+            cart: response.data,
         });
     } catch (err) {
         return dispatch({ type: GET_CART_ERROR, err });

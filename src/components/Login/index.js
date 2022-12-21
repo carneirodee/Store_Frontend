@@ -6,7 +6,7 @@ function Login(props) {
 
     return (
         <Form>
-            <Label for="fname">Name:</Label>
+            <Label for="fname">Email:</Label>
             <br></br>
             <Input type="text" id="fname" name="fname">
             </Input>

@@ -11,7 +11,7 @@ function Register(props) {
             </Input>
     
             <Label>Password:</Label>
-            <Input type="text" >
+            <Input type="password" >
             </Input>
             <Label>Email:</Label>
             <Input type="email" >

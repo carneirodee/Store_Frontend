@@ -1,28 +1,28 @@
-const INITIAL_STATE ={
-    isLoadingInfo: true,
-    info : {
-    },
+const INITIAL_STATE = {
+    isLoadingUser: true,
+    users: [],
     errorData: [],
     error: false
 }
 
-export const infoReducer = (state = INITIAL_STATE, action) => {
+export const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'GET_INFO_REQUEST':
+        case 'GET_USER_REQUEST':
             console.log(action)
             return {
                 ...state,
-                isLoadingInfo: true,
+                isLoadingUser: true,
             };
-        case 'GET_INFO_SUCCESS':
+        case 'GET_USER_SUCCESS':
             console.log(action)
-            const { info } = action;
+            const { users } = action;
+
             return {
                 ...state,
-                info: info,
-                isLoadingInfo: false,
+                isLoadingUser: false,
+                users: users,
             };
-        case 'GET_INFO_ERROR':
+        case 'GET_USER_ERROR':
             console.log(action)
             return {
                 ...state,
