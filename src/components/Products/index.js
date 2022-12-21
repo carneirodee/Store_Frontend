@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { updatingCart } from '../../actions/cart.actions';
+import { useDispatch, useSelector } from "react-redux";
 import ProductCard from '../ProductCard';
 
 function Products(props) {
 
     const { products } = props;
+
+    const dispatch = useDispatch();
+
+    function updateCart() {
+        dispatch(updatingCart())
+    }
 
     return (
         <>
@@ -15,7 +23,8 @@ function Products(props) {
                         icon={""}
                         price={episode.price}
                         buttonValue="Add to Cart"
-                        key={1}>
+                        onclick={() => updateCart()}
+                        key={key}>
                        <img src={episode.image}/>
                         </ProductCard>
                     }

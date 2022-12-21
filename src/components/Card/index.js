@@ -1,7 +1,7 @@
 import './Card.css';
 // import  Mobile  from '../../assets/images/Mobile.jsx';
 
-function Card(props) {
+function Login(props) {
 
     const {title, imgSrc, description, buttonValue, onclick} = props;
     return (
@@ -14,4 +14,4 @@ function Card(props) {
     );
 }
 
-export default Card;
+export default Login;

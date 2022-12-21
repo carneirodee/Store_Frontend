@@ -2,7 +2,6 @@ import React from 'react';
 import Tabs from '../components/Tabs';
 import Products from '../components/Products';
 import Cart from '../components/Cart';
-import Card from '../components/Card';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import AddProduct from '../components/AddProduct';
@@ -43,28 +42,27 @@ function Aside(props) {
     [{ title: 'Products', component: <Products products={products} /> },
     {
       title: 'Register', component:
-        <Card title="Register"
-          description={<Register />}
+        <Register title="Adding Product"
           buttonValue="Register"
-          key={1}> </Card>
+          key={1}> </Register>
     },
     {
-      title: 'Login', component: <Card title="Login"
-        description={<Login />}
+      title: 'Login', component: <Login title="Login"
         buttonValue="Login"
-        key={1}> </Card>
+        key={1}> </Login>
     }
     ]
 
   user === 'admin' && tabs1.push({
-    title: 'Dashboard', component: <Card title="Adding Product"
-      description={<AddProduct />}
+    title: 'Dashboard', component: <Register title="Adding Product"
       buttonValue="Add"
-      key={1}> </Card>
+      key={1}> </Register>
   });
 
-  logged === true && tabs1.push({ title: 'Cart', component: 
-  <Cart products={[{}, {}, {}, {}, {}, {}, {}, {}, {},]} /> });
+  logged === true && tabs1.push({
+    title: 'Cart', component:
+      <Cart products={[{}, {}, {}, {}, {}, {}, {}, {}, {},]} />
+  });
 
   return (
     <><Tabs selectedTab={"0"} tabs={tabs1} /></>

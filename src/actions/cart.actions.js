@@ -1,4 +1,4 @@
-import { getCart } from '../api';
+import { getCart, updateCart } from '../api/cart.api';
 
 export const GET_CART_REQUEST = "GET_CART_REQUEST";
 export const GET_CART_SUCCESS = "GET_CART_SUCCESS";
@@ -8,6 +8,19 @@ export const fetchCart = () => async(dispatch) => {
     await dispatch({ type: GET_CART_REQUEST, isLoadingCart: false });
     try {
         const response = await getCart();
+        return dispatch({
+            type: GET_CART_SUCCESS,
+            cart: response.data,
+        });
+    } catch (err) {
+        return dispatch({ type: GET_CART_ERROR, err });
+    }
+};
+
+export const updatingCart = () => async(dispatch) => {
+    await dispatch({ type: GET_CART_REQUEST, isLoadingCart: false });
+    try {
+        const response = await updateCart();
         return dispatch({
             type: GET_CART_SUCCESS,
             cart: response.data,
