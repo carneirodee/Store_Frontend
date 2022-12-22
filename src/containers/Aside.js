@@ -3,6 +3,7 @@ import Tabs from '../components/Tabs';
 import Products from '../components/Products';
 import Cart from '../components/Cart';
 import Login from '../components/Login';
+import UpdateUser from '../components/UpdateUser';
 import Register from '../components/Register';
 import Dashboard from '../components/Dashboard';
 import { fetchProduct } from '../actions/products.actions';
@@ -18,25 +19,34 @@ function Aside(props) {
   const { cart } = props;
   const { logged } = props;
   const dispatch = useDispatch();
-  let type = localStorage.getItem('type')
-
+  let type = localStorage.getItem('type');
+  let total = 0;
   useEffect(() => {
+    cart.cart.map((productId, key) => {
+      let product = products.find(({ _id }) => _id === productId);
+      total += Number(product.price)
+    })
     dispatch(authenticate({ token: localStorage.getItem('token') }));
-    console.log('Cart', cart)
+    console.log("Total", total)
   }, [dispatch])
 
+
   const tabs1 =
-    [{ title: 'Products', component: <Products products={products} cartState={cart} /> },
+    [{ title: 'Products', component: <Products products={products} cartState={cart} />,           
+      position: false
+    },
     {
       title: 'Register', component:
-        <Register title="Adding Product"
+        <Register title="Register"
           buttonValue="Register"
-          key={1}> </Register>
+          key={1}> </Register>,
+          position: true
     },
     {
       title: 'Login', component: <Login title="Login"
         buttonValue="Login"
-        key={1}> </Login>
+        key={1}> </Login>,
+        position: true
     }
     ]
 
@@ -44,19 +54,22 @@ function Aside(props) {
 
   logged === true && tabs1.pop();
 
-  logged === true &&  type !== 'admin'&& tabs1.push({
-    title: 'Cart', component:
-      <Cart cartState={cart} products={products} />
+  logged === true && type !== 'admin' && tabs1.push({
+    title: 'Cart',  component:<Cart cartState={cart} products={products} />,
+      position: false
   });
 
   logged === true && tabs1.push({
-    title: 'Dashboard', component: <Dashboard title="Adding Product"
-      buttonValue="Add"
-      key={1}> </Dashboard>
+    title: 'Dashboard', component: <> <Dashboard title="Adding Product"
+    buttonValue="Add"
+    key={1}> </Dashboard><UpdateUser title="Update Data"
+    buttonValue="Update"
+    key={1}> </UpdateUser></> ,
+      position: true
   });
 
   return (
-    <><Tabs selectedTab={"0"} tabs={tabs1} /></>
+    <><Tabs selectedTab={"0"} tabs={tabs1} total={total} /></>
   );
 
 }

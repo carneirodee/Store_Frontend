@@ -31,7 +31,7 @@ export const TabsNav = styled.nav`
 
 export const TabsPanel = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     color: gray;
 `;
 
@@ -58,8 +58,21 @@ export const TabItem = styled.div`
     width: 100vw;
     height: 95vh;
     overflow-y: scroll;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    ${(props) => props.position?
+        `justify-content: center;
+            align-items: center;` : 
+        `justify-content: flex-start;
+        align-items: flex-start;`}
     ${(props) => props.dataKey === props.visibility ? `display: flex;` : `display: none`}
     
+`;
+
+export const Span = styled.h1`
+    width: 2vh
+    flex-wrap: wrap;
+    justify-self: flex-end;
+    align-items: flex-end;
 `;

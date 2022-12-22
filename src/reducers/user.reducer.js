@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
     isLoadingUser: true,
-    users: [],
+    user: {},
     errorData: [],
     error: false
 }
@@ -12,15 +12,15 @@ export const userReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 isLoadingUser: true,
+                error: false
             };
         case 'GET_USER_SUCCESS':
             console.log(action)
-            const { users } = action;
-
+            const { user } = action;
             return {
                 ...state,
                 isLoadingUser: false,
-                users: users,
+                user: user,
             };
         case 'GET_USER_ERROR':
             console.log(action)

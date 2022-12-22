@@ -31,35 +31,35 @@ function Register(props) {
     return (
         <Form onSubmit={(e) => register(e)}>
             <span className="card">
-                <h1>Register</h1>
+                <h1>{title}</h1>
                 <Label>Name:</Label>
-                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, name: e.target.value})}} value={registerForm.name} >
+                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, name: e.target.value})}} value={registerForm.name} required>
                 </Input>
                 <Label>Password:</Label>
-                <Input type="password" onChange={(e) => { setRegisterForm({...registerForm, password: e.target.value})}} value={registerForm.password} >
+                <Input type="password" onChange={(e) => { setRegisterForm({...registerForm, password: e.target.value})}} value={registerForm.password} required>
                 </Input>
                 <Label>Email:</Label>
-                <Input type="email" onChange={(e) => { setRegisterForm({...registerForm, email: e.target.value})}} value={registerForm.email}>
+                <Input type="email" onChange={(e) => { setRegisterForm({...registerForm, email: e.target.value})}} value={registerForm.email} required>
                 </Input>
                 <Label>Type:</Label>
-                <Select onChange={(e) => { setRegisterForm({...registerForm, type: e.target.value})}} value={registerForm.type}>
+                <Select onChange={(e) => { setRegisterForm({...registerForm, type: e.target.value})}} value={registerForm.type} required>
                     <option defaultValue="consumer">Consumer</option>
                     <option value="admin">Admin</option>
                 </Select>
                 <Label>Telefone:</Label>
-                <Input type="telefone" onChange={(e) => { setRegisterForm({...registerForm, telefone: e.target.value})}} value={registerForm.telefone}>
+                <Input type="telefone" onChange={(e) => { setRegisterForm({...registerForm, telefone: e.target.value})}} value={registerForm.telefone} required>
                 </Input>
                 <Label>Zipcode:</Label>
-                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, zipcode: e.target.value})}} value={registerForm.zipcode}>
+                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, zipcode: e.target.value})}} value={registerForm.zipcode} required>
                 </Input>
                 <Label>Address:</Label>
-                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, address: e.target.value})}} value={registerForm.address}>
+                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, address: e.target.value})}} value={registerForm.address} required>
                 </Input>
                 <Label>City:</Label>
-                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, city: e.target.value})}} value={registerForm.city}>
+                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, city: e.target.value})}} value={registerForm.city} required>
                 </Input>
                 <Label>State:</Label>
-                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, state: e.target.value})}} value={registerForm.state}>
+                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, state: e.target.value})}} value={registerForm.state} required>
                 </Input>
                 <p>{description}</p>
                 <button>{buttonValue}</button>

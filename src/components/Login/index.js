@@ -7,6 +7,7 @@ import './Card.css';
 function Login(props) {
 
     const dispatch = useDispatch();
+    const error = useSelector(state => state.authReducer.error)
 
     const [loginForm, setLoginForm] = useState({
         email: '',
@@ -18,20 +19,22 @@ function Login(props) {
      dispatch(login(loginForm))
     }
 
+
+
     const { title, imgSrc, description, buttonValue, onclick } = props;
     return (
         <Form onSubmit={e => loginF(e)}>
-        <span className="card">
-            <h1>{title}</h1>
-                <Label for="fname">Email:</Label>
+        <span className="card"> 
+            <h1>{title+true}</h1>
+                <Label for="fname">Email</Label>
                 <br></br>
-                <Input onChange={(e) => { setLoginForm({...loginForm, email: e.target.value})}} type="text" id="fname" name="fname" value={loginForm.email}>
+                <Input onChange={(e) => { setLoginForm({...loginForm, email: e.target.value})}} type="text" id="fname" name="fname" value={loginForm.email} required>
                 </Input>
                 <br></br>
 
                 <Label for="lname">Password:</Label>
                 <br></br>
-                <Input onChange={(e) => { setLoginForm({...loginForm, password: e.target.value})}} type="password" id="lname" name="lname" value={loginForm.password}>
+                <Input onChange={(e) => { setLoginForm({...loginForm, password: e.target.value})}} type="password" id="lname" name="lname" value={loginForm.password} required>
                 </Input>
             <p>{description}</p>
             <button>{buttonValue}</button>

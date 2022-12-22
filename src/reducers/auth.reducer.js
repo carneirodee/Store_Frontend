@@ -37,7 +37,7 @@ export const authReducer = (state = INITIAL_STATE, action) => {
                 logged: false
             };
         case 'GET_AUTH_ERROR':
-            console.log(action)
+            console.log(state)
             return {
                 ...state,
                 errorData: action.data,

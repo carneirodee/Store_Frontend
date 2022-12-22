@@ -19,7 +19,7 @@ export const login = (data) => async (dispatch) => {
             logged: true
         });
     } catch (err) {
-        return dispatch({ type: GET_AUTH_ERROR, err });
+        return dispatch({ type: GET_AUTH_ERROR, data: err.response.data  });
     }
 };
 

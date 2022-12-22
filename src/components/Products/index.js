@@ -40,7 +40,7 @@ function Products(props) {
                         onclick={(e) => addToCart(e,product._id)}
                         key={key}
                         id={product._id}>
-                       <img src={product.image}/>
+                       <img src="https://www.nicepng.com/png/detail/443-4431327_png-file-fa-fa-product-icon.png" width={150}/>
                         </ProductCard>
                     }
                 })
