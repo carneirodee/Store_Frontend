@@ -12,15 +12,16 @@ function Products(props) {
 
     const dispatch = useDispatch();
 
-    function addToCart(id) {
-        productsArr.push(id)
-        if(cartState.cart.length === 0){
-            console.log('CREATE')
+    function addToCart(e, id) {
+        productsArr.push(id);
+        e.preventDefault();
+        if(cartState.id === undefined){
+            console.log('CREATE', cartState)
             dispatch(creatingCart({products: productsArr, userId: userId }))
             dispatch(fetchCart(localStorage.getItem('id')))
 
         }else{
-            console.log("ID", cartState)
+            console.log("ID", productsArr, userId)
         dispatch(updatingCart(cartState.id, {products: productsArr, userId: userId }))}
         dispatch(fetchCart(localStorage.getItem('id')))
 
@@ -36,7 +37,7 @@ function Products(props) {
                         icon={""}
                         price={product.price}
                         buttonValue="Add to Cart"
-                        onclick={() => addToCart(product._id)}
+                        onclick={(e) => addToCart(e,product._id)}
                         key={key}
                         id={product._id}>
                        <img src={product.image}/>

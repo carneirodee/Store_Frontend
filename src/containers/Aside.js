@@ -46,7 +46,7 @@ function Aside(props) {
 
   logged === true && tabs1.push({
     title: 'Cart', component:
-      <Cart cart={cart.cart} products={products} />
+      <Cart cartState={cart} products={products} />
   });
 
   logged === true && tabs1.push({

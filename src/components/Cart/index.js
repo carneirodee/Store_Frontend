@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../ProductCard';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updatingCart, fetchCart } from '../../actions/cart.actions';
 
 function Cart(props) {
 
-    const { cart, products } = props;
+    const { cartState, products } = props;
+    const { cart } = cartState
+    let productsArr = cartState.cart.length > 0 ? cartState.cart : [];
+    let userId = localStorage.getItem('id')
 
-    useEffect(()=>{
-        console.log(cart)
-    },[])
+    const dispatch = useDispatch();
+
+    function removeFromCart(e, id) {
+        e.preventDefault();
+        productsArr = productsArr.filter(function( obj ) {
+            return obj !== id;
+        });
+        console.log(id)
+        dispatch(updatingCart(cartState.id, {products: productsArr, userId: userId }))
+        dispatch(fetchCart(localStorage.getItem('id')))
+    }
 
     return (
         <>
@@ -22,7 +34,7 @@ function Cart(props) {
                             icon={""}
                             price={product.price}
                             buttonValue="Remove"
-                            onclick={() => { }}
+                            onclick={(e) => {removeFromCart(e,productId) }}
                             key={key}>
                             <img src={product.image} />
                         </ProductCard>
