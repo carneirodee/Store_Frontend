@@ -6,6 +6,10 @@ function Cart(props) {
 
     const { cart, products } = props;
 
+    useEffect(()=>{
+        console.log(cart)
+    },[])
+
     return (
         <>
             {cart ?

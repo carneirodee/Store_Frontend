@@ -22,6 +22,7 @@ function Aside(props) {
 
   useEffect(() => {
     dispatch(authenticate({ token: localStorage.getItem('token') }));
+    console.log('Cart',cart)
   }, [dispatch])
 
   const tabs1 =

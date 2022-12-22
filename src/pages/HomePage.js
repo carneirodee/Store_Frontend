@@ -5,13 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 
 function Home(props) {
 
-  const cartState = useSelector(state => state.cartReducer.card)
+  const cartState = useSelector(state => state.cartReducer)
 
   const { products, logged} = props;
 
+  useEffect(() => {
+    console.log('Cart',cartState)
+  }, [])
+
     return (
       <Container>
-        <Aside products={products} logged={logged} cart={cartState}/>
+        <Aside products={products} logged={logged} cart={cartState.cart}/>
       </Container>
     );
   }
