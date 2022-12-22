@@ -6,25 +6,9 @@ function Cart(props) {
 
     const { cart, products } = props;
 
-    let cartProducts = [];
-
-    function getCartProducts() {
-        let result = cart.map(productId => {
-            return products.map(product => {
-                if (product._id == productId) cartProducts.push(product)
-            })
-        });
-    }
-
-    useEffect(() => {
-        getCartProducts();
-        console.log(cart)
-
-    }, [cartProducts])
-
     return (
         <>
-            {products ?
+            {cart ?
                     cart.map((productId, key) =>{
                      let product = products.find(({ _id }) => _id === productId);
                     if (product !== null) {

@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import { Container } from '../components/commons/containers';
 import Aside from '../containers/Aside';
+import { useDispatch, useSelector } from "react-redux";
 
 function Home(props) {
 
+  const cartState = useSelector(state => state.cartReducer.card)
 
-  const { products, logged, cart} = props;
+  const { products, logged} = props;
 
     return (
       <Container>
-        <Aside products={products} logged={logged} cart={cart}/>
+        <Aside products={products} logged={logged} cart={cartState}/>
       </Container>
     );
   }

@@ -23,16 +23,17 @@ function Register(props) {
     });
 
 
-    function register() {
-        dispatch(registerUser())
+    function register(e) {
+        e.preventDefault()
+        dispatch(registerUser(registerForm))
     }
 
     return (
-        <Form onSubmit={register}>
+        <Form onSubmit={(e) => register(e)}>
             <span className="card">
                 <h1>{title}</h1>
                 <Label>Name:</Label>
-                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, email: e.target.value})}} value={registerForm.name} >
+                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, name: e.target.value})}} value={registerForm.name} >
                 </Input>
                 <Label>Password:</Label>
                 <Input type="password" onChange={(e) => { setRegisterForm({...registerForm, password: e.target.value})}} value={registerForm.password} >

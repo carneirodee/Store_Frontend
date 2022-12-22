@@ -14,6 +14,7 @@ function Login(props) {
     })
 
     function loginF(e) {
+        e.preventDefault()
      dispatch(login(loginForm))
     }
 

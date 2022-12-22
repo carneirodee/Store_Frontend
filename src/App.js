@@ -9,7 +9,6 @@ import Loading from './pages/Loading';
 function App() {
 
   const productsState = useSelector(state => state.productReducer);
-  const cartState = useSelector(state => state.cartReducer)
   const logged = useSelector(state => state.authReducer.logged)
   const dispatch = useDispatch();
   const { isLoadingProducts } = productsState;
@@ -30,7 +29,6 @@ function App() {
       <HomePage
         logged={logged}
         products={productsState.products} 
-        cart={cartState.cart}
       />
     );
   }

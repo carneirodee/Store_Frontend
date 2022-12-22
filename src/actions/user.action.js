@@ -19,6 +19,7 @@ export const fetchUser = () => async(dispatch) => {
 
 export const registerUser = (data) => async(dispatch) => {
     await dispatch({ type: GET_USER_REQUEST, isLoadingUser: false });
+    console.log('Result', data)
     try {
         const response = await createUser(data);
         return dispatch({
