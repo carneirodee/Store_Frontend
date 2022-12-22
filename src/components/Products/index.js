@@ -16,16 +16,16 @@ function Products(props) {
     return (
         <>
             {products ?
-                products.map((episode, key) => {
-                    if (episode != null) {
-                        return <ProductCard title={episode.name}
-                        description={episode.description}
+                products.map((product, key) => {
+                    if (product != null) {
+                        return <ProductCard title={product.name}
+                        description={product.description}
                         icon={""}
-                        price={episode.price}
+                        price={product.price}
                         buttonValue="Add to Cart"
                         onclick={() => updateCart()}
                         key={key}>
-                       <img src={episode.image}/>
+                       <img src={product.image}/>
                         </ProductCard>
                     }
                 })

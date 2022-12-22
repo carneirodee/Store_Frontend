@@ -1,42 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Tabs from '../components/Tabs';
 import Products from '../components/Products';
 import Cart from '../components/Cart';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import AddProduct from '../components/AddProduct';
-import { login } from '../actions/auth.actions';
-import { registerUser } from '../actions/user.action';
+import { fetchProduct } from '../actions/products.actions';
+import { authenticate } from '../actions/auth.actions';
+import { useDispatch, useSelector } from "react-redux";
 
 
 function Aside(props) {
 
+  // const product = useSelector(state => state.productsReducer.product)
+
   const { products } = props;
-  const { user } = ''
-  const { logged } = ''
+  const { cart } = props;
+  const { logged } = props;
+  const dispatch = useDispatch();
+  let type = ''
 
-  const sanitizeProducts = (list, keyGetter) => {
-    const map = new Map();
-    const mapToArray = [];
-    list.forEach((item) => {
-      if (item != null) {
-        const key = keyGetter(item);
-        const collection = map.get(key);
-        if (!collection) {
-          map.set(key, [item]);
-        } else {
-          collection.push(item);
-        }
-      }
-    });
-    for (const [key, value] of map.entries()) {
-      mapToArray.push({ season: key, products: value });
-    }
-
-    return mapToArray;
-  }
-
-  const sanitizedProducts = sanitizeProducts(products, episode => episode.SeasonNumber);
+  useEffect(() => {
+    dispatch(authenticate({ token: localStorage.getItem('token') }));
+  }, [dispatch])
 
   const tabs1 =
     [{ title: 'Products', component: <Products products={products} /> },
@@ -53,15 +39,19 @@ function Aside(props) {
     }
     ]
 
-  user === 'admin' && tabs1.push({
+  type === 'admin' && tabs1.push({
     title: 'Dashboard', component: <Register title="Adding Product"
       buttonValue="Add"
       key={1}> </Register>
   });
 
+  logged === true && tabs1.pop();
+
+  logged === true && tabs1.pop();
+
   logged === true && tabs1.push({
     title: 'Cart', component:
-      <Cart products={[{}, {}, {}, {}, {}, {}, {}, {}, {},]} />
+      <Cart cart={cart} products={products} />
   });
 
   return (

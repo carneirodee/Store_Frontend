@@ -13,14 +13,13 @@ function Login(props) {
         password: ''
     })
 
-    function loginF() {
-     let loginData = JSON.stringify(loginForm);
-     dispatch(login(loginData))
+    function loginF(e) {
+     dispatch(login(loginForm))
     }
 
     const { title, imgSrc, description, buttonValue, onclick } = props;
     return (
-        <Form onSubmit={loginF}>
+        <Form onSubmit={e => loginF(e)}>
         <span className="card">
             <h1>{title}</h1>
                 <Label for="fname">Email:</Label>

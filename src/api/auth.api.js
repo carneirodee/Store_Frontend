@@ -9,5 +9,5 @@ export const logoutAuth = async (data) => {
 };
 
 export const authenticateAuth = async (data) => {
-   return await axios.delete(`http://localhost:8000/users/authenticate`, data);
+   return await axios.post(`http://localhost:8000/users/authenticate`, data);
 };

@@ -14,7 +14,22 @@ export const authReducer = (state = INITIAL_STATE, action) => {
             };
         case 'GET_AUTH_SUCCESS':
             console.log(action)
-            
+            return {
+                ...state,
+                logged: true
+            };
+        case 'GET_LOGIN_SUCCESS':
+            console.log(action);
+            const { auth } = action;
+            localStorage.setItem("id", auth.data.id);
+            localStorage.setItem("name", auth.data.name);
+            localStorage.setItem("email", auth.data.email);
+            return {
+                ...state,
+                logged: true
+            };
+        case 'GET_LOGOUT_SUCCESS':
+            console.log(action);
             return {
                 ...state,
                 logged: true

@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
     isLoadingCart: true,
-    cart: [],
+    cart: {},
     errorData: [],
     error: false
 }

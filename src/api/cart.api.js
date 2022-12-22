@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 export const getCart = async (id) => {
-   return await axios.get(`http://localhost:8000/carts/${id}`);
+   return await axios.get(`http://localhost:8000/carts/user/${id}`);
 };
 
 export const createCart = async (data) => {

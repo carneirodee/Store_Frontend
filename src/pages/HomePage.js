@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container } from '../components/commons/containers';
-import Header from '../containers/Header';
 import Aside from '../containers/Aside';
-import Footer from '../containers/Footer';
 
 function Home(props) {
 
-  const {cast, synopsis, images, title, products, genres, year } = props;
+
+  const { products, logged, cart} = props;
 
     return (
       <Container>
-        <Aside products={products} />
+        <Aside products={products} logged={logged} cart={cart}/>
       </Container>
     );
   }
