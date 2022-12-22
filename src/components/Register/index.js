@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { registerUser } from '../../actions/user.action';
 import { useDispatch, useSelector } from "react-redux";
-import { Input, Label, Form } from '../commons/form';
+import { Input, Label, Form, Select } from '../commons/form';
 import './Card.css';
 
 function Register(props) {
@@ -24,14 +24,14 @@ function Register(props) {
 
 
     function register(e) {
-        e.preventDefault()
+        console.log(registerForm)
         dispatch(registerUser(registerForm))
     }
 
     return (
         <Form onSubmit={(e) => register(e)}>
             <span className="card">
-                <h1>{title}</h1>
+                <h1>Register</h1>
                 <Label>Name:</Label>
                 <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, name: e.target.value})}} value={registerForm.name} >
                 </Input>
@@ -42,8 +42,10 @@ function Register(props) {
                 <Input type="email" onChange={(e) => { setRegisterForm({...registerForm, email: e.target.value})}} value={registerForm.email}>
                 </Input>
                 <Label>Type:</Label>
-                <Input type="text" onChange={(e) => { setRegisterForm({...registerForm, type: e.target.value})}} value={registerForm.type}>
-                </Input>
+                <Select onChange={(e) => { setRegisterForm({...registerForm, type: e.target.value})}} value={registerForm.type}>
+                    <option defaultValue="consumer">Consumer</option>
+                    <option value="admin">Admin</option>
+                </Select>
                 <Label>Telefone:</Label>
                 <Input type="telefone" onChange={(e) => { setRegisterForm({...registerForm, telefone: e.target.value})}} value={registerForm.telefone}>
                 </Input>

@@ -11,6 +11,14 @@ export const Input = styled.input`
     font-size: 3vh
 `;
 
+export const Select = styled.select`
+    width: 40vw;
+    height: 5vh;
+    margin-bottom: 3vh;
+    font-size: 3vh
+`;
+
+
 export const Label = styled.label`
     display: flex;
     justify-content: flex-start;

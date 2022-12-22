@@ -44,7 +44,7 @@ function Aside(props) {
 
   logged === true && tabs1.pop();
 
-  logged === true && tabs1.push({
+  logged === true &&  type !== 'admin'&& tabs1.push({
     title: 'Cart', component:
       <Cart cartState={cart} products={products} />
   });
