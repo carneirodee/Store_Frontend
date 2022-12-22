@@ -1,4 +1,4 @@
-import { getProducts, getProduct } from '../api/products.api';
+import { getProducts, getProduct, createProduct } from '../api/products.api';
 
 export const GET_PRODUCTS_REQUEST = "GET_PRODUCTS_REQUEST";
 export const GET_PRODUCTS_SUCCESS = "GET_PRODUCTS_SUCCESS";
@@ -24,6 +24,19 @@ export const fetchProduct = (id) => async(dispatch) => {
     await dispatch({ type: GET_PRODUCT_REQUEST, isLoadingProducts: false });
     try {
         const response = await getProduct(id);
+        return dispatch({
+            type: GET_PRODUCT_SUCCESS,
+            product: response.data,
+        });
+    } catch (err) {
+        return dispatch({ type: GET_PRODUCT_ERROR, err });
+    }
+};
+
+export const addProduct = (data) => async(dispatch) => {
+    await dispatch({ type: GET_PRODUCT_REQUEST, isLoadingProducts: false });
+    try {
+        const response = await createProduct(data);
         return dispatch({
             type: GET_PRODUCT_SUCCESS,
             product: response.data,

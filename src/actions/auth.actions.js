@@ -24,6 +24,7 @@ export const login = (data) => async (dispatch) => {
 };
 
 export const logout = (data) => async (dispatch) => {
+    console.log(data)
     await dispatch({ type: GET_AUTH_REQUEST, logged: false });
     try {
         const response = await logoutAuth(data);

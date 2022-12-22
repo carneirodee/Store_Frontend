@@ -4,7 +4,7 @@ import Products from '../components/Products';
 import Cart from '../components/Cart';
 import Login from '../components/Login';
 import Register from '../components/Register';
-import AddProduct from '../components/AddProduct';
+import Dashboard from '../components/Dashboard';
 import { fetchProduct } from '../actions/products.actions';
 import { authenticate } from '../actions/auth.actions';
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +18,7 @@ function Aside(props) {
   const { cart } = props;
   const { logged } = props;
   const dispatch = useDispatch();
-  let type = ''
+  let type = localStorage.getItem('type')
 
   useEffect(() => {
     dispatch(authenticate({ token: localStorage.getItem('token') }));
@@ -40,12 +40,6 @@ function Aside(props) {
     }
     ]
 
-  type === 'admin' && tabs1.push({
-    title: 'Dashboard', component: <Register title="Adding Product"
-      buttonValue="Add"
-      key={1}> </Register>
-  });
-
   logged === true && tabs1.pop();
 
   logged === true && tabs1.pop();
@@ -53,6 +47,12 @@ function Aside(props) {
   logged === true && tabs1.push({
     title: 'Cart', component:
       <Cart cart={cart} products={products} />
+  });
+
+  type === 'admin' && logged === true && tabs1.push({
+    title: 'Dashboard', component: <Dashboard title="Adding Product"
+      buttonValue="Add"
+      key={1}> </Dashboard>
   });
 
   return (

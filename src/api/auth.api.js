@@ -5,7 +5,7 @@ export const loginAuth = async (data) => {
 };
 
 export const logoutAuth = async (data) => {
-   return await axios.put(`http://localhost:8000/users/logout`, data);
+   return await axios.post(`http://localhost:8000/users/logout`, data);
 };
 
 export const authenticateAuth = async (data) => {

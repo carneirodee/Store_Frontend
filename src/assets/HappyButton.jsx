@@ -1,7 +1,7 @@
 import * as React from "react"
 
 const HappyButton = (props) => (
-  <svg width={34} height={34} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg width={100} height={100} xmlns="http://www.w3.org/2000/svg" {...props}>
     <title>{"Layer 1"}</title>
     <g fillRule="evenodd" fill="none">
       <path

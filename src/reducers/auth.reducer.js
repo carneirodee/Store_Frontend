@@ -24,6 +24,8 @@ export const authReducer = (state = INITIAL_STATE, action) => {
             localStorage.setItem("id", auth.data.id);
             localStorage.setItem("name", auth.data.name);
             localStorage.setItem("email", auth.data.email);
+            localStorage.setItem("type", auth.data.type);
+
             return {
                 ...state,
                 logged: true
@@ -32,7 +34,7 @@ export const authReducer = (state = INITIAL_STATE, action) => {
             console.log(action);
             return {
                 ...state,
-                logged: true
+                logged: false
             };
         case 'GET_AUTH_ERROR':
             console.log(action)

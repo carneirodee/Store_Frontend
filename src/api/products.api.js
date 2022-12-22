@@ -10,3 +10,9 @@ export const getProduct =  async (id) => {
    let result = await axios.get(`http://localhost:8000/products/${id}`);
    return result;
 };
+
+
+export const createProduct =  async (data) => {
+   let result = await axios.post(`http://localhost:8000/products`, data);
+   return result;
+};
