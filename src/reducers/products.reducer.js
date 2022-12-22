@@ -49,6 +49,25 @@ export const productReducer = (state = INITIAL_STATE, action) => {
                     errorData: action.data,
                     error: true
                 };
+                case 'GET_PRODUCT_DELETE_REQUEST':
+                    console.log(action)
+                    return {
+                        ...state,
+                        isLoadingProducts: true,
+                    };
+                case 'GET_PRODUCT_DELETE_SUCCESS':
+                    console.log(action)
+                    return {
+                        ...state,
+                        isLoadingProducts: false,
+                    };
+                case 'GET_PRODUCT_DELETE_ERROR':
+                    console.log(action)
+                    return {
+                        ...state,
+                        errorData: action.data,
+                        error: true
+                    };
         default:
             return state;
     }

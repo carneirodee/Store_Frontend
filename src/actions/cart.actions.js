@@ -1,4 +1,4 @@
-import { getCart, updateCart } from '../api/cart.api';
+import { getCart, updateCart, deleteCart, createCart } from '../api/cart.api';
 
 export const GET_CART_REQUEST = "GET_CART_REQUEST";
 export const GET_CART_SUCCESS = "GET_CART_SUCCESS";
@@ -18,14 +18,23 @@ export const fetchCart = (data) => async(dispatch) => {
     }
 };
 
-export const updatingCart = () => async(dispatch) => {
+export const updatingCart = (id, data) => async(dispatch) => {
     await dispatch({ type: GET_CART_REQUEST, isLoadingCart: false });
     try {
-        const response = await updateCart();
-        return dispatch({
-            type: GET_CART_SUCCESS,
-            cart: response.data,
-        });
+        console.log("UPDATE", data, id)
+        const response = await updateCart(id, data);
+        return dispatch();
+    } catch (err) {
+        return dispatch({ type: GET_CART_ERROR, err });
+    }
+};
+
+
+export const creatingCart = (data) => async(dispatch) => {
+    await dispatch({ type: GET_CART_REQUEST, isLoadingCart: false });
+    try {
+        const response = await createCart(data);
+        return dispatch();
     } catch (err) {
         return dispatch({ type: GET_CART_ERROR, err });
     }

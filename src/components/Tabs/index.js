@@ -11,9 +11,11 @@ function Tabs(props) {
     const goTo = (key) => {
         setCurrentTab(key);
     }
-    
+    const type = localStorage.getItem('type')
+
     return (
         <TabsContainer>
+           { type === 'admin' ? <h1>ADMIN</h1> : <h1>CONSUMER</h1>}
             <TabsNav>
                 {tabs.map((tab, key) => {
                     return <Tab key={`${key}`} href="#"  dataKey={`${key}`} selected={currentTab} onClick={() => { goTo(`${key}`) }}>{tab.title.toUpperCase()}</Tab>

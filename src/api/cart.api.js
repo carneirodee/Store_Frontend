@@ -9,8 +9,8 @@ export const createCart = async (data) => {
    return await axios.post(`http://localhost:8000/carts`, data);
 };
 
-export const updateCart = async (id) => {
-   return await axios.put(`http://localhost:8000/carts/${id}`);
+export const updateCart = async (id, data) => {
+   return await axios.put(`http://localhost:8000/carts/${id}`, data);
 };
 
 export const deleteCart = async (id) => {

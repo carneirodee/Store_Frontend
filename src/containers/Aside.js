@@ -22,11 +22,11 @@ function Aside(props) {
 
   useEffect(() => {
     dispatch(authenticate({ token: localStorage.getItem('token') }));
-    console.log('Cart',cart)
+    console.log('Cart', cart)
   }, [dispatch])
 
   const tabs1 =
-    [{ title: 'Products', component: <Products products={products} /> },
+    [{ title: 'Products', component: <Products products={products} cartState={cart} /> },
     {
       title: 'Register', component:
         <Register title="Adding Product"
@@ -46,10 +46,10 @@ function Aside(props) {
 
   logged === true && tabs1.push({
     title: 'Cart', component:
-      <Cart cart={cart} products={products} />
+      <Cart cart={cart.cart} products={products} />
   });
 
-  type === 'admin' && logged === true && tabs1.push({
+  logged === true && tabs1.push({
     title: 'Dashboard', component: <Dashboard title="Adding Product"
       buttonValue="Add"
       key={1}> </Dashboard>

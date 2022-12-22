@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
     isLoadingCart: true,
-    cart: {},
+    cart: [],
     errorData: [],
     error: false
 }
@@ -20,7 +20,8 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 isLoadingCart: false,
-                cart: cart,
+                id: cart._id,
+                cart: cart.products,
             };
         case 'GET_CART_ERROR':
             console.log(action)

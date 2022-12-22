@@ -15,7 +15,7 @@ function Home(props) {
 
     return (
       <Container>
-        <Aside products={products} logged={logged} cart={cartState.cart}/>
+        <Aside products={products} logged={logged} cart={cartState}/>
       </Container>
     );
   }

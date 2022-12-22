@@ -19,14 +19,16 @@ function Dashboard(props) {
         description: '',
         status: 1
     });
+    const type = localStorage.getItem('type')
+
 
     function addToStore(e) {
         e.preventDefault()
         dispatch(addProduct(productForm))
     }
 
-    function logoutUser(){
-        dispatch(logout({id: localStorage.getItem('id')}))
+    function logoutUser() {
+        dispatch(logout({ id: localStorage.getItem('id') }))
         localStorage.clear()
     }
 
@@ -43,32 +45,35 @@ function Dashboard(props) {
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" width="250" />
                 <h1>{localStorage.getItem('name')}</h1>
             </UserInfo>
-            <Form onSubmit={(e) => addToStore(e)}>
-                <span className="card">
-                    <h1>{title}</h1>
-                    <Label for="fname">Name:</Label>
-                    <br></br>
-                    <Input onChange={(e) => { setProductForm({ ...productForm, name: e.target.value }) }} type="text" id="fname" name="fname" value={productForm.name}>
-                    </Input>
-                    <br></br>
-                    <Label for="lname">Price:</Label>
-                    <br></br>
-                    <Input onChange={(e) => { setProductForm({ ...productForm, price: e.target.value }) }} type="text" id="lname" name="lname" value={productForm.price}>
-                    </Input>
-                    <br></br>
-                    <Label for="fname">Description:</Label>
-                    <br></br>
-                    <Input onChange={(e) => { setProductForm({ ...productForm, description: e.target.value }) }} type="text" id="lname" name="lname" value={productForm.description}>
-                    </Input>
-                    <br></br>
-                    <Label for="fname">Quantidade:</Label>
-                    <br></br>
-                    <Input onChange={(e) => { setProductForm({ ...productForm, qtd: e.target.value }) }} type="text" id="lname" name="lname" value={productForm.qtd}>
-                    </Input>
-                    <br></br>
-                    <button>{buttonValue}</button>
-                </span>
-            </Form>
+            {
+                type === 'admin' &&
+                <Form onSubmit={(e) => addToStore(e)}>
+                    <span className="card">
+                        <h1>{title}</h1>
+                        <Label for="fname">Name:</Label>
+                        <br></br>
+                        <Input onChange={(e) => { setProductForm({ ...productForm, name: e.target.value }) }} type="text" id="fname" name="fname" value={productForm.name}>
+                        </Input>
+                        <br></br>
+                        <Label for="lname">Price:</Label>
+                        <br></br>
+                        <Input onChange={(e) => { setProductForm({ ...productForm, price: e.target.value }) }} type="text" id="lname" name="lname" value={productForm.price}>
+                        </Input>
+                        <br></br>
+                        <Label for="fname">Description:</Label>
+                        <br></br>
+                        <Input onChange={(e) => { setProductForm({ ...productForm, description: e.target.value }) }} type="text" id="lname" name="lname" value={productForm.description}>
+                        </Input>
+                        <br></br>
+                        <Label for="fname">Quantidade:</Label>
+                        <br></br>
+                        <Input onChange={(e) => { setProductForm({ ...productForm, qtd: e.target.value }) }} type="text" id="lname" name="lname" value={productForm.qtd}>
+                        </Input>
+                        <br></br>
+                        <button>{buttonValue}</button>
+                    </span>
+                </Form>
+            }
         </>
     )
 }

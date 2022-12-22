@@ -12,10 +12,10 @@ function Cart(props) {
 
     return (
         <>
-            {cart ?
+            {cart && products.length > 0 ?
                     cart.map((productId, key) =>{
                      let product = products.find(({ _id }) => _id === productId);
-                    if (product !== null) {
+                    if (product !== undefined) {
                         console.log(product)
                         return <ProductCard title={product.name}
                             description={product.description}
